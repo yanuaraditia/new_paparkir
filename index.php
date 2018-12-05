@@ -33,7 +33,7 @@
 					<div class="android-header-spacer mdl-layout-spacer"></div>
 					<div class="paparkir-find-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
 						<label class="mdl-button mdl-js-button mdl-button--icon" id="more-button">
-              <i class="material-icons">account_circle</i>
+							<i class="material-icons">account_circle</i>
 						</label>
 						<div class="mdl-textfield__expandable-holder">
 							<input class="mdl-textfield__input" type="text" id="search-field">
@@ -50,7 +50,7 @@
 						<img class="android-logo-image" src="images/android-logo.png">
 					</span>
 					<ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
-						<li class="mdl-menu__item"><a href="dashboard/login.php">Login</li>
+						<li class="mdl-menu__item"><a href="login.php">Login</li>
 						<li disabled class="mdl-menu__item">Register</li>
 					</ul>
 				</div>
@@ -59,8 +59,6 @@
 			<div class="paparkir-drawer mdl-layout__drawer">
 				<nav class="mdl-navigation">
 					<a class="mdl-navigation__link" href="">Beranda</a>
-					<a class="mdl-navigation__link" href="#fitur">Fitur</a>
-					<a class="mdl-navigation__link" href="#harga">Harga</a>
 					<div class="paparkir-drawer-separator"></div>
 					<span class="mdl-navigation__link" href="">Laman Kami</span>
 					<a class="mdl-navigation__link" href="partner.paparkir.com" target="_blank">Mitra Paparkir</a>

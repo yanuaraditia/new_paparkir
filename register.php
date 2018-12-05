@@ -1,3 +1,6 @@
+<?php
+require_once('dashboard/qlib.php');
+?>
 <!doctype html>
 <html lang="en">
 	<head>
@@ -8,9 +11,9 @@
 		<title>Paparkir | Kemudahan Parkir Dalam Genggaman</title>
     	<meta name="description" content="Sistem pencarian parkir beserta detektor otomatis. Kendaraan akan tercatat secara otomatis, dan sistem bergerak dengan model realtime.">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans:400|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700|Material+Icons">
-		<link rel="icon" href="../images/favicon.png" sizes="32x32" type="image/png">
-		<link rel="stylesheet" href="../mdl/material.css">
-		<link rel="stylesheet" href="../styles.css">
+		<link rel="icon" href="images/favicon.png" sizes="32x32" type="image/png">
+		<link rel="stylesheet" href="mdl/material.css">
+		<link rel="stylesheet" href="styles.css">
 		<style>
 		#view-source {
 			position: fixed;
@@ -28,11 +31,11 @@
 			<div class="android-header mdl-layout__header mdl-layout__header--waterfall">
 				<div class="mdl-layout__header-row">
 					<span class="android-title mdl-layout-title">
-						<img class="android-logo-image" src="../images/android-logo.png">
+						<img class="android-logo-image" src="images/android-logo.png">
 					</span>
 					<div class="android-header-spacer mdl-layout-spacer"></div>
 					<span class="android-mobile-title mdl-layout-title">
-						<img class="android-logo-image" src="../images/android-logo.png">
+						<img class="android-logo-image" src="images/android-logo.png">
 					</span>
 				</div>
 			</div>
@@ -46,8 +49,8 @@
 					<a class="mdl-navigation__link" href="mailto:admin@paparkir.com">Join Paparkir Dev</a>
 					<div class="paparkir-drawer-separator"></div>
 					<span class="mdl-navigation__link" href="">Supported By</span>
-					<a class="mdl-navigation__link" href=""><img src="../images/amikom.png"></a>
-					<a class="mdl-navigation__link" href=""><img src="../images/abp.png"></a>
+					<a class="mdl-navigation__link" href=""><img src="images/amikom.png"></a>
+					<a class="mdl-navigation__link" href=""><img src="images/abp.png"></a>
 				</nav>
 			</div>
 
@@ -71,12 +74,18 @@
 							  </div>
 							  <div class="mdl-textfield mdl-js-textfield">
 							  	<select class="mdl-textfield__input select" id="sample4">
-							  		<option>Satu</option>
+							  		<?php
+							  		$jns = new SmartQuery();
+							  		$row = $jns->__vehicle_list($con);
+							  		while($jenis=mysqli_fetch_array($row)) {
+							  			echo "<option value=\"".$jenis['id_jenis']."\">".$jenis['nama_jenis']."</option>";
+							  		}
+							  		?>
 							  	</select>
 							  	<label class="mdl-textfield__label" for="sample1">Jenis Kendaraan</label>
 							  </div>
-							  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Button</button>
-							  <span class="mdl-typography--text-center mdl-m-t-20">Sudah punya akun? <a href="daftar.php">Masuk</a></span>
+							  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Daftar</button>
+							  <span class="mdl-typography--text-center mdl-m-t-20">Sudah punya akun? <a href="login.php">Masuk</a></span>
 						</form>
 					</div>
 				</div>
@@ -90,6 +99,6 @@
 			<li class="mdl-menu__item"><a href="https://instagram.com/paparkir" target="_blank">Instagram</a></li>
 			<li class="mdl-menu__item"><a href="mailto:paparkir@gmail.com" target="_blank">paparkir@gmail.com</a></li>
 		</ul>
-		<script src="../mdl/material.min.js"></script>
+		<script src="mdl/material.min.js"></script>
 	</body>
 </html>

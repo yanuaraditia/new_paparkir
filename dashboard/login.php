@@ -28,31 +28,12 @@
 			<div class="android-header mdl-layout__header mdl-layout__header--waterfall">
 				<div class="mdl-layout__header-row">
 					<span class="android-title mdl-layout-title">
-						<img class="android-logo-image" src="images/android-logo.png">
+						<img class="android-logo-image" src="../images/android-logo.png">
 					</span>
 					<div class="android-header-spacer mdl-layout-spacer"></div>
-					<div class="paparkir-find-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
-						<label class="mdl-button mdl-js-button mdl-button--icon" id="more-button">
-              <i class="material-icons">account_circle</i>
-						</label>
-						<div class="mdl-textfield__expandable-holder">
-							<input class="mdl-textfield__input" type="text" id="search-field">
-						</div>
-					</div>
-					<div class="android-navigation-container">
-						<nav class="android-navigation mdl-navigation">
-							<a class="mdl-navigation__link" href="#">Beranda</a>
-							<a class="mdl-navigation__link" href="#fitur">Fitur</a>
-							<a class="mdl-navigation__link" href="#harga">Harga</a>
-						</nav>
-					</div>
 					<span class="android-mobile-title mdl-layout-title">
-						<img class="android-logo-image" src="images/android-logo.png">
+						<img class="android-logo-image" src="../images/android-logo.png">
 					</span>
-					<ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
-						<li class="mdl-menu__item"><a href="/dashboard/">Login</li>
-						<li disabled class="mdl-menu__item">Register</li>
-					</ul>
 				</div>
 			</div>
 
@@ -67,8 +48,8 @@
 					<a class="mdl-navigation__link" href="mailto:admin@paparkir.com">Join Paparkir Dev</a>
 					<div class="paparkir-drawer-separator"></div>
 					<span class="mdl-navigation__link" href="">Supported By</span>
-					<a class="mdl-navigation__link" href=""><img src="images/amikom.png"></a>
-					<a class="mdl-navigation__link" href=""><img src="images/abp.png"></a>
+					<a class="mdl-navigation__link" href=""><img src="../images/amikom.png"></a>
+					<a class="mdl-navigation__link" href=""><img src="../images/abp.png"></a>
 				</nav>
 			</div>
 
