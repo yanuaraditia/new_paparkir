@@ -87,13 +87,13 @@
 							  	<label class="mdl-textfield__label" for="sample1">Password</label>
 							  </div>
 							  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Button</button>
-							  <span class="mdl-typography--text-center">Belum punya akun? <a href="daftar.php">Daftar</a></span>
+							  <span class="mdl-typography--text-center mdl-m-t-20">Belum punya akun? <a href="register.php">Daftar</a></span>
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
-		<a id="view-source" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect call-now"><i class="material-icons">contacts</i></a>
+		<a id="view-source" class="mdl-button mdl-button--colored mdl-js-button mdl-button--fab mdl-js-ripple-effect"><i class="material-icons">contacts</i></a>
 		<ul class="mdl-menu mdl-menu--top-right mdl-js-menu mdl-js-ripple-effect"
 				data-mdl-for="view-source">
 			<li class="mdl-menu__item"><a href="https://api.whatsapp.com/send?phone=082243374043" target="_blank">WhatsApp</a></li>

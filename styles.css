@@ -93,6 +93,7 @@ a img{
 						order: 2;
 		margin-left: 16px;
 		margin-right: 16px;
+		margin-top: 17px;
 	}
 
 	.paparkir-pricing-button {
@@ -267,54 +268,22 @@ a img{
 	position: relative;
 	background: url('images/jam.jpg') center top no-repeat;
 	background-size: cover;
-	height: 800px;
-}
-
-.traffic-jam-band {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	text-align: center;
+	padding: 100px 0;
 }
 
 .traffic-jam-band-text {
 	max-width: 800px;
-	margin-left: 25%;
-	padding: 24px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 50px;
 	text-align: left;
-	color: white;
+	color: #424242;
+	background: #fff;
+	border-radius: 8px;
 }
 
 	.traffic-jam-band-text p {
 		padding-top: 8px;
-	}
-
-.android-link {
-	text-decoration: none;
-	color: #192440;
-	padding: 0;
-}
-
-	.android-link:hover {
-		color: #174ea6;
-		background: transparent;
-	}
-
-	.android-link .material-icons {
-		position: relative;
-		top: -1px;
-		vertical-align: middle;
-	}
-
-.android-alt-link {
-	background: #ffffff77;
-	text-decoration: none;
-	color: #192440;
-	font-size: 16px;
-}
-
-	.android-alt-link:hover {
-		background: #fff;
 	}
 
 
@@ -514,16 +483,6 @@ a img{
 	border:none;
 }
 
-.call-now {
-	background: #4fce5d;
-}
-.call-now:hover {
-	background: #435a64;
-}
-.call-now .material-icons {
-	color: #fff;
-}
-
 .payment {
 	margin:0;
 	padding: 0;
@@ -559,4 +518,10 @@ a img{
 	padding: 40px;
 	margin-left: auto;
 	margin-right: auto;
+}
+.poster-front {
+	font-size: 16px;
+}
+.smart-help {
+	background: #fff;
 }

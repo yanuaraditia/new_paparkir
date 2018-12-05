@@ -50,7 +50,7 @@
 						<img class="android-logo-image" src="images/android-logo.png">
 					</span>
 					<ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
-						<li class="mdl-menu__item"><a href="/dashboard/">Login</li>
+						<li class="mdl-menu__item"><a href="dashboard/login.php">Login</li>
 						<li disabled class="mdl-menu__item">Register</li>
 					</ul>
 				</div>
@@ -88,14 +88,14 @@
 					</a>
 				</div>
 				<div class="traffic-jam-section" id="fitur">
-					<div class="traffic-jam-band">
+					<div class="traffic-jam-band mdl-shadow--2dp">
 						<div class="traffic-jam-band-text">
 							<div class="mdl-typography--display-2 mdl-typography--font-thin">Waktumu berharga bung, masih mau ditipu terus?</div>
-							<p class="mdl-typography--headline mdl-typography--font-thin">
+							<p class="mdl-typography--headline mdl-typography--font-thin poster-front">
 								Hardware, cloud, dan aplikasi sinkron secara real-time, menggunakan dedicated hardware sehingga informasi tentang slot parkirmu tersaji rinci. Kami peduli dengan waktu, dan kami berfikir untuk itu. 
 							</p>
 							<p>
-								<a class="mdl-typography--font-regular android-alt-link mdl-button mdl-js-button" href="">
+								<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="">
 									Selengkapnya&nbsp;<i class="material-icons notranslate cloud-button__icon cloud-button__icon--internal">arrow_forward</i>
 								</a>
 							</p>
@@ -126,7 +126,7 @@
 								</ul>
 							</div>
 							<div class="mdl-card__actions">
-								 <a class="android-link mdl-button mdl-js-button" href="">
+								 <a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="">
 									 Cek Sekarang
 									 <i class="material-icons notranslate cloud-button__icon cloud-button__icon--internal">arrow_forward</i>
 								 </a>
@@ -180,7 +180,7 @@
 								</ul>
 							</div>
 							<div class="mdl-card__actions">
-								 <a class="android-link mdl-button mdl-js-button" href="">
+								 <a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="">
 									 Cek Sekarang
 									 <i class="material-icons notranslate cloud-button__icon cloud-button__icon--internal">arrow_forward</i>
 								 </a>
@@ -213,7 +213,7 @@
 				</footer>
 			</div>
 		</div>
-		<a id="view-source" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect call-now"><i class="material-icons">contacts</i></a>
+		<a id="view-source" class="mdl-button mdl-button--colored mdl-js-button mdl-button--fab mdl-js-ripple-effect"><i class="material-icons">contacts</i></a>
 		<ul class="mdl-menu mdl-menu--top-right mdl-js-menu mdl-js-ripple-effect"
 				data-mdl-for="view-source">
 			<li class="mdl-menu__item"><a href="https://api.whatsapp.com/send?phone=082243374043" target="_blank">WhatsApp</a></li>
