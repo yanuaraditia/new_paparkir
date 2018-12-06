@@ -26,7 +26,7 @@ class SmartQuery
 	}
 	function __login($con,$username,$userpass)
 	{
-		$q = "SELECT id_pengguna, password_pengguna, nama_pengguna FROM pengguna WHERE id_pengguna = '$username'";
+		$q = "SELECT id_pengguna, password_pengguna, nama_pengguna, nopol_pengguna FROM pengguna WHERE id_pengguna = '$username'";
 		$d = mysqli_query($con,$q);
 		return $d;
 	}

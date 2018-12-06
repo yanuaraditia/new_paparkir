@@ -10,12 +10,13 @@ if (isset($_POST['login'])) {
     $username = $_POST['id_pengguna'];
     $userpass = $_POST['password'];
     $sql = $oop->__login($con,$username,$userpass);
-    list($username, $password, $nama) = mysqli_fetch_array($sql);
+    list($username, $password, $nama, $nopol) = mysqli_fetch_array($sql);
     if (mysqli_num_rows($sql) > 0) {
         if (password_verify($userpass, $password)) {
             session_start();
             $_SESSION['id_pengguna'] = $username;
             $_SESSION['nama_pengguna'] = $nama;
+            $_SESSION['nopol_pengguna'] = $nopol;
             header("location: dashboard/");
             die();
         } else {
@@ -45,17 +46,6 @@ if (isset($_POST['login'])) {
 		<link rel="icon" href="images/favicon.png" sizes="32x32" type="image/png">
 		<link rel="stylesheet" href="mdl/material.css">
 		<link rel="stylesheet" href="styles.css">
-		<style>
-		#view-source {
-			position: fixed;
-			display: block;
-			right: 0;
-			bottom: 0;
-			margin-right: 40px;
-			margin-bottom: 40px;
-			z-index: 900;
-		}
-		</style>
 	</head>
 	<body class="user-page">
 		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
