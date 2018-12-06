@@ -11,10 +11,11 @@ class SmartQuery
 		return $q;
 	}
 
-	function __daftar($nama_pengguna,$password_pengguna,$email_pengguna,$id_jenis,$tanggal_sekarang)
+	function __daftar($con,$nama_pengguna,$password_pengguna,$email_pengguna,$id_jenis,$tanggal_sekarang,$plat_nomor)
 	{
-		$q = "INSERT INTO `user` (`id_username`, `nama_pengguna`, `password_pengguna`, `email_pengguna`, `id_jenis`, `registered_on`, `updated_on`) VALUES (NULL, '$nama_pengguna', '$password_pengguna', '$email_pengguna', '$id_jenis', '$tanggal_sekarang', NULL);";
-		return $q;
+		$q = "INSERT INTO `pengguna` (`id_pengguna`, `password_pengguna`, `nama_pengguna`, `email_pengguna`, `kd_jenis`, `nopol_pengguna`, `kelas`) VALUES (NULL, '$password_pengguna', '$nama_pengguna', '$email_pengguna', '$id_jenis', '$plat_nomor', '1')";
+		$d = mysqli_query($con,$q);
+		return $d;
 	}
 }
 

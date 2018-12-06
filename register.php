@@ -8,8 +8,8 @@ if(isset($_POST['submit'])) {
 	$password_pengguna	= password_hash($password_pengguna,PASSWORD_DEFAULT);
 	$email_pengguna		= $_POST['email'];
 	$id_jenis			= $_POST['jenis_kendaraan'];
-	$que 				= $jns->__daftar($nama_pengguna,$password_pengguna,$email_pengguna,$id_jenis,$tanggal_sekarang);
-	$newuser			= mysqli_query($con,$que);
+	$nopol				= $_POST['nopol'];
+	$que 				= $jns->__daftar($con,$nama_pengguna,$password_pengguna,$email_pengguna,$id_jenis,$tanggal_sekarang,$nopol);
 }
 ?>
 <!doctype html>
@@ -70,32 +70,42 @@ if(isset($_POST['submit'])) {
 				<div class="paparkir-pricing-section" id="harga">
 					<div class="android-card-container mdl-grid">
 						<form class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone mdl-card session" action="" method="post">
+							<?php
+							if(isset($que)) {
+								echo '<h4>Registrasi berhasil dilakukan, silahkan cek e-mail untuk info username dan password? <a href="login.php">Masuk</a></h4>';
+							}
+							else {
+							?>
 							<h4>Pendaftaran</h4>
 							  <div class="mdl-textfield mdl-js-textfield">
-							  	<input class="mdl-textfield__input" type="text" id="sample1" name="nama" required="">
+							  	<input class="mdl-textfield__input" type="text" id="sample1" name="nama" required="true">
 							  	<label class="mdl-textfield__label" for="sample1">Nama Lengkap</label>
 							  </div>
 							  <div class="mdl-textfield mdl-js-textfield">
-							  	<input class="mdl-textfield__input" type="password" id="sample2" name="password" required="">
+							  	<input class="mdl-textfield__input" type="password" id="sample2" name="password" required="true">
 							  	<label class="mdl-textfield__label" for="sample2">Password</label>
 							  </div>
 							  <div class="mdl-textfield mdl-js-textfield">
-							  	<input class="mdl-textfield__input" type="e-mail" id="sample3" name="email" required="">
+							  	<input class="mdl-textfield__input" type="mail" id="sample3" name="email" required="true">
 							  	<label class="mdl-textfield__label" for="sample3">E-mail</label>
 							  </div>
 							  <div class="mdl-textfield mdl-js-textfield">
-							  	<select class="mdl-textfield__input select" id="sample4" name="jenis_kendaraan" required="">
+							  	<input class="mdl-textfield__input" type="mail" id="sample3" name="nopol" required="true">
+							  	<label class="mdl-textfield__label" for="sample3">Nomor Polisi</label>
+							  </div>
+							  <div class="mdl-textfield mdl-js-textfield">
+							  	<select class="mdl-textfield__input select" id="sample4" name="jenis_kendaraan" required="true">
 							  		<?php
 							  		$row = $jns->__vehicle_list($con);
 							  		while($jenis=mysqli_fetch_array($row)) {
-							  			echo "<option value=\"".$jenis['id_jenis']."\">".$jenis['nama_jenis']."</option>";
+							  			echo "<option value=\"".$jenis['kd_jenis']."\">".$jenis['nama_jenis']."</option>";
 							  		}
 							  		?>
 							  	</select>
-							  	<label class="mdl-textfield__label" for="sample1">Jenis Kendaraan</label>
 							  </div>
 							  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" name="submit">Daftar</button>
 							  <span class="mdl-typography--text-center mdl-m-t-20">Sudah punya akun? <a href="login.php">Masuk</a></span>
+							<?php } ?>
 						</form>
 					</div>
 				</div>

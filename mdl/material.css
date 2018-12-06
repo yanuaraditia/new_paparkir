@@ -7503,14 +7503,13 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 
 .mdl-textfield__input {
 	border: none;
-	background: #eee;
-	border-bottom: 1px solid transparent;
+	background: transparent;
+	border-bottom: 3px solid #f7f7f7;
 	display: block;
 	font-size: 16px;
 	font-family: "Helvetica", "Arial", sans-serif;
 	margin: 0;
 	padding: 10px 0;
-	border-radius: 8px;
 	width: 100%;
 	text-align: left;
 	color: inherit; }
@@ -7533,7 +7532,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 	fieldset[disabled] .mdl-textfield .mdl-textfield__input,
 	.mdl-textfield.is-disabled .mdl-textfield__input {
 		background-color: transparent;
-		border-bottom: 1px dotted rgba(0,0,0, 0.12);
+		border-bottom: 2px dotted rgba(0,0,0, 0.12);
 		color: rgba(0,0,0, 0.26); }
 	.mdl-textfield__input.select {
 		padding-left: 20px;
@@ -7598,7 +7597,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 		content: '';
 		height: 3px;
 		left: 45%;
-		border-radius: 0 0 10px 10px;
 		position: absolute;
 		transition-duration: 0.2s;
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);

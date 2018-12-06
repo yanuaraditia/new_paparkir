@@ -1,3 +1,6 @@
+<?php
+require_once('dashboard/qlib.php');
+?>
 <!doctype html>
 <html lang="en">
 	<head>
@@ -55,27 +58,39 @@
 				<a name="top"></a>
 				<div class="paparkir-pricing-section" id="harga">
 					<div class="android-card-container mdl-grid">
-						<form class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone mdl-card session">
+						<?php
+						if(isset($_POST['daftar'])) {
+							$oop = new SqlQuery();
+							$que = $oop->__daftar($nama_pengguna,$password_pengguna,$email_pengguna,$id_jenis,$tanggal_sekarang);
+							$doi = mysqli_query($con,$que);
+						}
+						?>
+						<form class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone mdl-card session" action="" method="post">
 							<h4>Pendaftaran</h4>
 							  <div class="mdl-textfield mdl-js-textfield">
-							  	<input class="mdl-textfield__input" type="text" id="sample1">
+							  	<input class="mdl-textfield__input" type="text" id="sample1" name="nama_lengkap">
 							  	<label class="mdl-textfield__label" for="sample1">Nama Lengkap</label>
 							  </div>
 							  <div class="mdl-textfield mdl-js-textfield">
-							  	<input class="mdl-textfield__input" type="password" id="sample2">
+							  	<input class="mdl-textfield__input" type="password" id="sample2" name="password">
 							  	<label class="mdl-textfield__label" for="sample2">Password</label>
 							  </div>
 							  <div class="mdl-textfield mdl-js-textfield">
-							  	<input class="mdl-textfield__input" type="e-mail" id="sample3">
+							  	<input class="mdl-textfield__input" type="e-mail" id="sample3" name="e-mail">
 							  	<label class="mdl-textfield__label" for="sample3">E-mail</label>
 							  </div>
 							  <div class="mdl-textfield mdl-js-textfield">
-							  	<select class="mdl-textfield__input select" id="sample4">
-							  		<option>Satu</option>
+							  	<select class="mdl-textfield__input select" id="sample4" name="jenis">
+							  		<?php
+							  		$que = $oop->__vehicle_list($con);
+							  		while ($list_jenis=mysqli_fetch_array($que)) {
+							  			echo "<option value=\"".$list_jenis['kd_jenis']."\">".$list_jenis['nama_jenis']."</option>";
+							  		}
+							  		?>
 							  	</select>
 							  	<label class="mdl-textfield__label" for="sample1">Jenis Kendaraan</label>
 							  </div>
-							  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Button</button>
+							  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" name="daftar">Button</button>
 							  <span class="mdl-typography--text-center mdl-m-t-20">Sudah punya akun? <a href="daftar.php">Masuk</a></span>
 						</form>
 					</div>
