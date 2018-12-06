@@ -1,5 +1,16 @@
 <?php
 require_once('dashboard/qlib.php');
+$jns = new SmartQuery();
+if(isset($_POST['submit'])) {
+	$tanggal_sekarang	= date('Y-m-d');
+	$nama_pengguna		= $_POST['nama'];
+	$password_pengguna	= $_POST['password'];
+	$password_pengguna	= password_hash($password_pengguna,PASSWORD_DEFAULT);
+	$email_pengguna		= $_POST['email'];
+	$id_jenis			= $_POST['jenis_kendaraan'];
+	$que 				= $jns->__daftar($nama_pengguna,$password_pengguna,$email_pengguna,$id_jenis,$tanggal_sekarang);
+	$newuser			= mysqli_query($con,$que);
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -26,7 +37,7 @@ require_once('dashboard/qlib.php');
 		}
 		</style>
 	</head>
-	<body>
+	<body class="user-page">
 		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 			<div class="android-header mdl-layout__header mdl-layout__header--waterfall">
 				<div class="mdl-layout__header-row">
@@ -42,15 +53,15 @@ require_once('dashboard/qlib.php');
 
 			<div class="paparkir-drawer mdl-layout__drawer">
 				<nav class="mdl-navigation">
-					<a class="mdl-navigation__link" href="">Beranda</a>
+					<a class="mdl-navigation__link" href="index.php">Beranda</a>
 					<div class="paparkir-drawer-separator"></div>
-					<span class="mdl-navigation__link" href="">Laman Kami</span>
+					<span class="mdl-navigation__link">Laman Kami</span>
 					<a class="mdl-navigation__link" href="partner.paparkir.com" target="_blank">Mitra Paparkir</a>
 					<a class="mdl-navigation__link" href="mailto:admin@paparkir.com">Join Paparkir Dev</a>
 					<div class="paparkir-drawer-separator"></div>
-					<span class="mdl-navigation__link" href="">Supported By</span>
-					<a class="mdl-navigation__link" href=""><img src="images/amikom.png"></a>
-					<a class="mdl-navigation__link" href=""><img src="images/abp.png"></a>
+					<span class="mdl-navigation__link">Supported By</span>
+					<a class="mdl-navigation__link" href="http://amikom.ac.id"><img src="images/amikom.png"></a>
+					<a class="mdl-navigation__link" href="http://amikombizpark.com"><img src="images/abp.png"></a>
 				</nav>
 			</div>
 
@@ -58,24 +69,23 @@ require_once('dashboard/qlib.php');
 				<a name="top"></a>
 				<div class="paparkir-pricing-section" id="harga">
 					<div class="android-card-container mdl-grid">
-						<form class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone mdl-card session">
+						<form class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone mdl-card session" action="" method="post">
 							<h4>Pendaftaran</h4>
 							  <div class="mdl-textfield mdl-js-textfield">
-							  	<input class="mdl-textfield__input" type="text" id="sample1">
+							  	<input class="mdl-textfield__input" type="text" id="sample1" name="nama" required="">
 							  	<label class="mdl-textfield__label" for="sample1">Nama Lengkap</label>
 							  </div>
 							  <div class="mdl-textfield mdl-js-textfield">
-							  	<input class="mdl-textfield__input" type="password" id="sample2">
+							  	<input class="mdl-textfield__input" type="password" id="sample2" name="password" required="">
 							  	<label class="mdl-textfield__label" for="sample2">Password</label>
 							  </div>
 							  <div class="mdl-textfield mdl-js-textfield">
-							  	<input class="mdl-textfield__input" type="e-mail" id="sample3">
+							  	<input class="mdl-textfield__input" type="e-mail" id="sample3" name="email" required="">
 							  	<label class="mdl-textfield__label" for="sample3">E-mail</label>
 							  </div>
 							  <div class="mdl-textfield mdl-js-textfield">
-							  	<select class="mdl-textfield__input select" id="sample4">
+							  	<select class="mdl-textfield__input select" id="sample4" name="jenis_kendaraan" required="">
 							  		<?php
-							  		$jns = new SmartQuery();
 							  		$row = $jns->__vehicle_list($con);
 							  		while($jenis=mysqli_fetch_array($row)) {
 							  			echo "<option value=\"".$jenis['id_jenis']."\">".$jenis['nama_jenis']."</option>";
@@ -84,21 +94,13 @@ require_once('dashboard/qlib.php');
 							  	</select>
 							  	<label class="mdl-textfield__label" for="sample1">Jenis Kendaraan</label>
 							  </div>
-							  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Daftar</button>
+							  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" name="submit">Daftar</button>
 							  <span class="mdl-typography--text-center mdl-m-t-20">Sudah punya akun? <a href="login.php">Masuk</a></span>
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
-		<a id="view-source" class="mdl-button mdl-button--colored mdl-js-button mdl-button--fab mdl-js-ripple-effect"><i class="material-icons">contacts</i></a>
-		<ul class="mdl-menu mdl-menu--top-right mdl-js-menu mdl-js-ripple-effect"
-				data-mdl-for="view-source">
-			<li class="mdl-menu__item"><a href="https://api.whatsapp.com/send?phone=082243374043" target="_blank">WhatsApp</a></li>
-			<li class="mdl-menu__item"><a href="https://facebook.com/paparkir" target="_blank">Facebook</a></li>
-			<li class="mdl-menu__item"><a href="https://instagram.com/paparkir" target="_blank">Instagram</a></li>
-			<li class="mdl-menu__item"><a href="mailto:paparkir@gmail.com" target="_blank">paparkir@gmail.com</a></li>
-		</ul>
 		<script src="mdl/material.min.js"></script>
 	</body>
 </html>

@@ -65,8 +65,8 @@
 					<a class="mdl-navigation__link" href="mailto:admin@paparkir.com">Join Paparkir Dev</a>
 					<div class="paparkir-drawer-separator"></div>
 					<span class="mdl-navigation__link" href="">Supported By</span>
-					<a class="mdl-navigation__link" href=""><img src="images/amikom.png"></a>
-					<a class="mdl-navigation__link" href=""><img src="images/abp.png"></a>
+					<a class="mdl-navigation__link" href="http://amikom.ac.id"><img src="images/amikom.png"></a>
+					<a class="mdl-navigation__link" href="http://amikombizpark.com"><img src="images/abp.png"></a>
 				</nav>
 			</div>
 

@@ -7525,8 +7525,11 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 	.mdl-textfield.is-focused .mdl-textfield__input {
 		outline: none; }
 	.mdl-textfield.is-invalid .mdl-textfield__input {
-		border-color: rgb(213,0,0);
+		color: rgb(213,0,0);
 		box-shadow: none; }
+	.mdl-textfield.is-invalid .mdl-textfield__label {
+		color: rgb(213,0,0);
+	}
 	fieldset[disabled] .mdl-textfield .mdl-textfield__input,
 	.mdl-textfield.is-disabled .mdl-textfield__input {
 		background-color: transparent;

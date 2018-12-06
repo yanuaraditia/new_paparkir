@@ -23,7 +23,7 @@
 		}
 		</style>
 	</head>
-	<body>
+	<body class="user-page">
 		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 			<div class="android-header mdl-layout__header mdl-layout__header--waterfall">
 				<div class="mdl-layout__header-row">
@@ -39,17 +39,15 @@
 
 			<div class="paparkir-drawer mdl-layout__drawer">
 				<nav class="mdl-navigation">
-					<a class="mdl-navigation__link" href="">Beranda</a>
-					<a class="mdl-navigation__link" href="#fitur">Fitur</a>
-					<a class="mdl-navigation__link" href="#harga">Harga</a>
+					<a class="mdl-navigation__link" href="index.php">Beranda</a>
 					<div class="paparkir-drawer-separator"></div>
-					<span class="mdl-navigation__link" href="">Laman Kami</span>
+					<span class="mdl-navigation__link">Laman Kami</span>
 					<a class="mdl-navigation__link" href="partner.paparkir.com" target="_blank">Mitra Paparkir</a>
 					<a class="mdl-navigation__link" href="mailto:admin@paparkir.com">Join Paparkir Dev</a>
 					<div class="paparkir-drawer-separator"></div>
-					<span class="mdl-navigation__link" href="">Supported By</span>
-					<a class="mdl-navigation__link" href=""><img src="images/amikom.png"></a>
-					<a class="mdl-navigation__link" href=""><img src="images/abp.png"></a>
+					<span class="mdl-navigation__link">Supported By</span>
+					<a class="mdl-navigation__link" href="http://amikom.ac.id"><img src="images/amikom.png"></a>
+					<a class="mdl-navigation__link" href="http://amikombizpark.com"><img src="images/abp.png"></a>
 				</nav>
 			</div>
 
@@ -57,7 +55,7 @@
 				<a name="top"></a>
 				<div class="paparkir-pricing-section" id="harga">
 					<div class="android-card-container mdl-grid">
-						<form class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone mdl-card session">
+						<form class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone mdl-card session" action="">
 							<h4>Masuk</h4>
 							  <div class="mdl-textfield mdl-js-textfield">
 							  	<input class="mdl-textfield__input" type="text" id="sample1">
@@ -74,14 +72,6 @@
 				</div>
 			</div>
 		</div>
-		<a id="view-source" class="mdl-button mdl-button--colored mdl-js-button mdl-button--fab mdl-js-ripple-effect"><i class="material-icons">contacts</i></a>
-		<ul class="mdl-menu mdl-menu--top-right mdl-js-menu mdl-js-ripple-effect"
-				data-mdl-for="view-source">
-			<li class="mdl-menu__item"><a href="https://api.whatsapp.com/send?phone=082243374043" target="_blank">WhatsApp</a></li>
-			<li class="mdl-menu__item"><a href="https://facebook.com/paparkir" target="_blank">Facebook</a></li>
-			<li class="mdl-menu__item"><a href="https://instagram.com/paparkir" target="_blank">Instagram</a></li>
-			<li class="mdl-menu__item"><a href="mailto:paparkir@gmail.com" target="_blank">paparkir@gmail.com</a></li>
-		</ul>
 		<script src="mdl/material.min.js"></script>
 	</body>
 </html>
