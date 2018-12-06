@@ -1,3 +1,37 @@
+<?php
+session_start();
+if (isset($_SESSION['id_pengguna'])) {
+    header("location: dashboard/");
+}
+
+require_once "dashboard/qlib.php";
+$oop = new SmartQuery();
+if (isset($_POST['login'])) {
+    $username = $_POST['id_pengguna'];
+    $userpass = $_POST['password'];
+    $sql = $oop->__login($con,$username,$userpass);
+    list($username, $password, $nama) = mysqli_fetch_array($sql);
+    if (mysqli_num_rows($sql) > 0) {
+        if (password_verify($userpass, $password)) {
+            session_start();
+            $_SESSION['id_pengguna'] = $username;
+            $_SESSION['nama_pengguna'] = $nama;
+            header("location: dashboard/");
+            die();
+        } else {
+            echo '<script language="javascript">
+                    window.alert("LOGIN GAGAL! Silakan coba lagi");
+                    window.location.href="./";
+                  </script>';
+        }
+    } else {
+       echo '<script language="javascript">
+                window.alert("LOGIN GAGAL! Silakan coba lagi");
+                window.location.href="./";
+             </script>';
+    }
+}
+?>
 <!doctype html>
 <html lang="en">
 	<head>
@@ -55,17 +89,17 @@
 				<a name="top"></a>
 				<div class="paparkir-pricing-section" id="harga">
 					<div class="android-card-container mdl-grid">
-						<form class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone mdl-card session" action="">
+						<form class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone mdl-card session" action="" method="POST">
 							<h4>Masuk</h4>
 							  <div class="mdl-textfield mdl-js-textfield">
-							  	<input class="mdl-textfield__input" type="text" id="sample1">
-							  	<label class="mdl-textfield__label" for="sample1">Username</label>
+							  	<input class="mdl-textfield__input" type="text" id="sample1" name="id_pengguna">
+							  	<label class="mdl-textfield__label" for="sample1">ID Pengguna</label>
 							  </div>
 							  <div class="mdl-textfield mdl-js-textfield">
-							  	<input class="mdl-textfield__input" type="password" id="sample1">
+							  	<input class="mdl-textfield__input" type="password" id="sample1" name="password">
 							  	<label class="mdl-textfield__label" for="sample1">Password</label>
 							  </div>
-							  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Masuk</button>
+							  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" name="login">Masuk</button>
 							  <span class="mdl-typography--text-center mdl-m-t-20">Belum punya akun? <a href="register.php">Daftar</a></span>
 						</form>
 					</div>

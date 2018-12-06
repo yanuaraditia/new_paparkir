@@ -1,3 +1,11 @@
+<?php
+session_start();
+require_once('qlib.php');
+if(!isset($_SESSION['id_pengguna'])&&isset($_SESSION['nama_pengguna'])) {
+  header('location:../login.php');
+}
+$oop = new SmartQuery();
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -5,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>Material Design Lite</title>
+    <title>Dashboard | <?php echo $_SESSION['nama_pengguna'];?></title>
 
     <meta name="mobile-web-app-capable" content="yes">
     <link rel="icon" sizes="192x192" href="images/android-desktop.png">
@@ -18,9 +26,9 @@
     <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
     <meta name="msapplication-TileColor" content="#3372DF">
 
-    <link rel="shortcut icon" href="images/favicon.png">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans:400|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700|Material+Icons">
-	<link rel="stylesheet" href="../mdl/material.css">
+    <link rel="icon" href="..images/favicon.png" sizes="32x32" type="image/png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans:400|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700|Material+Icons">
+    <link rel="stylesheet" href="../mdl/material.css">
     <link rel="stylesheet" href="styles.css">
     <style>
     #view-source {
@@ -54,7 +62,7 @@
         <header class="demo-drawer-header">
           <img src="images/user.jpg" class="demo-avatar">
           <div class="demo-avatar-dropdown">
-            <span>hello@example.com</span>
+            <span><?php echo $_SESSION['nama_pengguna'];?></span>
             <div class="mdl-layout-spacer"></div>
             <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
               <i class="material-icons" role="presentation">expand_more</i>
@@ -95,42 +103,29 @@
             </div>
           </div>
           <div class="mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--12-col">
-      			<ul class="demo-list-three mdl-list">
+            <ul class="demo-list-three mdl-list">
+              <?php
+              $area = $oop->__area_list($con);
+              $row = mysqli_num_rows($area);
+              if($row>0) {
+                while($view=mysqli_fetch_array($area)) {
+              ?>
       			  <li class="mdl-list__item mdl-list__item--three-line">
       			    <span class="mdl-list__item-primary-content">
-      			      <span>Cakra Birawa Parking</span>
-      			      <span class="mdl-list__item-text-body">
-      			        Jl. Kasuari Komplek TNI Jakarta Pusat
-      			      </span>
+      			      <span><?php echo $view['nama_area'];?></span>
+      			      <span class="mdl-list__item-text-body"><?php echo $view['alamat'];?></span>
       			    </span>
       			    <span class="mdl-list__item-secondary-content">
       			      <a class="mdl-list__item-secondary-action mdl-button mdl-js-button mdl-button--icon" href="#"><i class="material-icons">arrow_forward</i></a>
       			    </span>
       			  </li>
+              <?php }} else { ?>
       			  <li class="mdl-list__item mdl-list__item--three-line">
       			    <span class="mdl-list__item-primary-content">
-      			      <span>Aaron Paul</span>
-      			      <span class="mdl-list__item-text-body">
-      			        Aaron Paul played the role of Jesse in Breaking Bad. He also featured in
-      			        the "Need For Speed" Movie.
-      			      </span>
-      			    </span>
-      			    <span class="mdl-list__item-secondary-content">
-      			      <a class="mdl-list__item-secondary-action mdl-button mdl-js-button mdl-button--icon" href="#"><i class="material-icons">arrow_forward</i></a>
+      			      <span>Lokasi Tidak Tersedia</span>
       			    </span>
       			  </li>
-      			  <li class="mdl-list__item mdl-list__item--three-line">
-      			    <span class="mdl-list__item-primary-content">
-      			      <span>Bob Odenkirk</span>
-      			      <span class="mdl-list__item-text-body">
-      			        Bob Odinkrik played the role of Saul in Breaking Bad. Due to public fondness for the
-      			        character, Bob stars in his own show now, called "Better Call Saul".
-      			      </span>
-      			    </span>
-      			    <span class="mdl-list__item-secondary-content">
-      			      <a class="mdl-list__item-secondary-action mdl-button mdl-js-button mdl-button--icon" href="#"><i class="material-icons">arrow_forward</i></a>
-      			    </span>
-      			  </li>
+              <?php }?>
       			</ul>
             <div class="mdl-card__actions mdl-card--border search-input">
               <form action="#">
