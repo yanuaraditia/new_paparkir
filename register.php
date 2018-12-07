@@ -61,6 +61,32 @@ if(isset($_POST['submit'])) {
 						<form class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone mdl-card session" action="" method="post">
 							<?php
 							if(isset($que)) {
+								$to      = $email_pengguna;
+								$subject = 'Paparkir | Verifikasi';
+								$cekd 	 = mysqli_query($con,"SELECT id_pengguna FROM pengguna WHERE email_pengguna = '$email_pengguna'");
+								$ftc 	 = mysqli_fetch_assoc($cekd);
+								$message = '
+								 
+								Terimakasih telah mendaftar!
+								Akun anda telah terdaftar, berikut adalah informasi kredensial berkaitan dengan akun anda, bisa digunakan untuk login.
+								 
+								------------------------
+								Username: '.$ftc['id_pengguna'].'
+								Password: '.$_POST['password'].'
+								------------------------
+								 
+								Harap jaga baik baik informasi kredensial ini, dan selamat berparkir
+								Hormat Kami
+
+
+
+								Yanuar Aditia
+								CTO Paparkir
+								 
+								'; // Our message above including the link
+								                     
+								$headers = 'From:noreply@paparkir.com' . "\r\n"; // Set from headers
+								mail($to, $subject, $message, $headers); // Send our email
 								echo '<h4>Registrasi berhasil dilakukan, silahkan cek e-mail untuk info username dan password? <a href="login.php">Masuk</a></h4>';
 							}
 							else {
