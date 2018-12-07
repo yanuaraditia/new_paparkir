@@ -10,13 +10,14 @@ if (isset($_POST['login'])) {
     $username = $_POST['id_pengguna'];
     $userpass = $_POST['password'];
     $sql = $oop->__login($con,$username,$userpass);
-    list($username, $password, $nama, $nopol) = mysqli_fetch_array($sql);
+    list($username, $password, $nama, $nopol, $jenis) = mysqli_fetch_array($sql);
     if (mysqli_num_rows($sql) > 0) {
         if (password_verify($userpass, $password)) {
             session_start();
             $_SESSION['id_pengguna'] = $username;
             $_SESSION['nama_pengguna'] = $nama;
             $_SESSION['nopol_pengguna'] = $nopol;
+            $_SESSION['jenis_kendaraan'] = $jenis;
             header("location: dashboard/");
             die();
         } else {
