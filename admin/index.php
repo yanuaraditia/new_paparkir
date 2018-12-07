@@ -14,7 +14,6 @@ $oop = new AdminClass();
 		<meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 		<title>Dashboard | <?php echo $_SESSION['nama_admin'];?></title>
-
 		<meta name="mobile-web-app-capable" content="yes">
 		<link rel="icon" sizes="192x192" href="../images/android-desktop.png">
 
