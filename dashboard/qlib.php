@@ -116,9 +116,6 @@ class BodyContent
 				</header>
 				<nav class="demo-navigation mdl-navigation mdl-colorized">
 					<a class="mdl-navigation__link" href=""><i class="material-icons" role="presentation">home</i>Menu Utama</a>
-					<a class="mdl-navigation__link" href=""><i class="material-icons" role="presentation">inbox</i>Notifikasi</a>
-					<a class="mdl-navigation__link" href=""><i class="material-icons" role="presentation">history</i>Riwayat</a>
-					<a class="mdl-navigation__link" href=""><i class="material-icons" role="presentation">card_giftcard</i>Upgrade</a>
 					<div class="mdl-layout-spacer"></div>
 					<a class="mdl-navigation__link mdl-smart-btn" href=""><i class="material-icons" role="presentation">help_outline</i>Bantuan</a>
 				</nav>
