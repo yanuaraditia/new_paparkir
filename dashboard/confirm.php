@@ -1,6 +1,9 @@
 <?php
 session_start();
 require_once('qlib.php');
+if(!isset($_SESSION['nama_pengguna'])) {
+	header('location:../login.php');
+}
 $oop = new SmartQuery();
 if(isset($_GET['do'])) {
 	$kd_slot	= base64_decode($_GET['do']);

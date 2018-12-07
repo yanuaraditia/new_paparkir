@@ -1,5 +1,6 @@
 <?php
 $con = mysqli_connect("localhost","root","","paparkir");
+$standar_tarif = 15000;
 date_default_timezone_set('Asia/Jakarta');
 function tgl_indo($tanggal){
 	$bulan = array (
@@ -19,6 +20,41 @@ function tgl_indo($tanggal){
 	$pecahkan = explode('-', $tanggal);
 	return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
 }
+class AdminClass
+{	
+	function __list_user($con)
+	{
+		$q	= "SELECT pengguna.id_pengguna, pengguna.nopol_pengguna, pengguna.nama_pengguna, jenis_kendaraan.nama_jenis, slot.kd_slot, slot.nama_slot, slot.tanggal_masuk, slot.status_parkir FROM pengguna LEFT JOIN slot ON pengguna.id_pengguna = slot.id_pengguna LEFT JOIN jenis_kendaraan ON pengguna.kd_jenis = jenis_kendaraan.kd_jenis";
+		$d 	= mysqli_query($con,$q);
+		return $d;
+	}
+	function __login_admin($con,$username,$userpass)
+	{
+		$q = "SELECT id_admin, password_admin, nama_admin,  email_admin, kd_area FROM admin WHERE id_admin = '$username'";
+		$d = mysqli_query($con,$q);
+		return $d;
+	}
+	function __maubayar($con,$id)
+	{
+		$q = "SELECT pengguna.id_pengguna,slot.nama_slot,slot.kd_slot,lantai.nama_lantai,area.nama_area,slot.tanggal_masuk FROM slot JOIN pengguna ON pengguna.id_pengguna = slot.id_pengguna JOIN lantai ON slot.kd_lantai = lantai.kd_lantai JOIN area ON lantai.kd_area = area.kd_area
+		 WHERE slot.id_pengguna = '$id'";
+		$d = mysqli_query($con,$q);
+		return $d;
+	}
+	function __bayar($con,$id_pengguna,$kd_slot,$jumlah_bayar,$id_admin,$tanggal_bayar)
+	{
+		$q = "INSERT INTO `transaksi` (`kd_transaksi`, `id_pengguna`, `kd_slot`, `jumlah_bayar`, `id_admin`, `tanggal_bayar`) VALUES (NULL, '$id_pengguna', '$kd_slot', '$jumlah_bayar', '$id_admin', '$tanggal_bayar')";
+		$d = mysqli_query($con,$q);
+		return $d;
+	}
+	function __sudah_bayar($con,$id_pengguna)
+	{
+		$q = "UPDATE `slot` SET `id_pengguna` = NULL, `status_parkir` = NULL WHERE `slot`.`id_pengguna` = '$id_pengguna' ";
+		$d = mysqli_query($con,$q);
+		return $d;
+	}
+}
+
 class SmartQuery
 {
 	function __vehicle_list($con)

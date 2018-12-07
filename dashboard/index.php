@@ -108,7 +108,18 @@ $body = new BodyContent();
 					</div>
 					<div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-desktop">
 						<div class="mdl-card__title mdl-card--expand mdl-color--green-300">
-							<h2 class="mdl-card__title-text mdl-color-text--white">Rp.-</h2>
+							<?php
+							if($co['status_parkir']==NULL) {
+								echo "<h2 class=\"mdl-card__title-text mdl-color-text--white\">-</h2>";
+							}
+							else {
+						    	$masuk = New DateTime($co['tanggal_masuk']);
+						    	$sekarang = New DateTime(date('Y-m-d'));
+						    	$total_hari = $masuk->diff($sekarang);
+						    	$total_bayar = $standar_tarif*($total_hari->days+1);
+								echo "<h2 class=\"mdl-card__title-text mdl-color-text--white\">Rp.".$total_bayar."</h2>";
+						    }
+					    	?>
 						</div>
 					</div>
 					<?php
