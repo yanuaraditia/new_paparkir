@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once('qlib.php');
-if(!isset($_SESSION)) {
+if(!isset($_SESSION['id_pengguna'])) {
 	header('location:../login.php');
 }
 $oop = new SmartQuery();
