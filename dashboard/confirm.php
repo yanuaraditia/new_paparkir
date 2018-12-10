@@ -17,7 +17,7 @@ if(isset($_GET['do'])) {
 elseif (isset($_GET['cf'])) {
 	$d = $oop->__expired($con,$_SESSION['id_pengguna']);
 	if($d) {
-		header('location:index.php');
+		header('location:logout.php');
 		unset($_SESSION['mulai']);
 	}
 }

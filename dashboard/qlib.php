@@ -216,7 +216,7 @@ class BodyContent
   
                         if(jam < 0) { 
                             clearInterval(hitung); 
-                            alert('Waktu anda telah berakhir, booking anda dibatalkan, silahkan pilih lokasi lain');
+                            alert('Waktu anda telah berakhir, booking dan sessi anda dihapus, silahkan login untuk melakukan pemesanankembali');
                             window.location.href="confirm.php?cf=<?php echo base64_encode($_SESSION['id_pengguna']);?>";
                         } 
                     } 
