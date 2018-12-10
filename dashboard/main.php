@@ -26,9 +26,10 @@ else {
 							<?php
 							if($co['id_pengguna']==$_SESSION['id_pengguna'] && $co['status_parkir']==NULL) {
 							?>
-								Sistem akan menunggu anda dalam waktu 15 menit. Jika waktu tersebut dilewati maka slot akan diubah menjadi kadaluwarsa<br/>
+								Sistem akan menunggu anda dalam waktu 15 menit. Jika waktu tersebut dilewati maka slot akan diubah menjadi kadaluwarsa.<br/>
+								Halaman akan disegarkan secara otomatis, jika tidak gunakan tombol dibawah.
 								<?php echo $body->__timer();?><br/>
-								<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Refresh</button>
+								<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="index.php">Refresh</a>
 							<?php
 							}
 							else {
