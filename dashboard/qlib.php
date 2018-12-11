@@ -24,7 +24,7 @@ class AdminClass
 {	
 	function __list_user($con)
 	{
-		$q	= "SELECT pengguna.id_pengguna, pengguna.nopol_pengguna, pengguna.nama_pengguna, jenis_kendaraan.nama_jenis, slot.kd_slot, slot.nama_slot, slot.tanggal_masuk, slot.status_parkir FROM pengguna LEFT JOIN slot ON pengguna.id_pengguna = slot.id_pengguna LEFT JOIN jenis_kendaraan ON pengguna.kd_jenis = jenis_kendaraan.kd_jenis";
+		$q	= "SELECT pengguna.id_pengguna, pengguna.nopol_pengguna, pengguna.nama_pengguna, jenis_kendaraan.nama_jenis, slot.kd_slot, slot.nama_slot, slot.id_pengguna as cek_pos, slot.tanggal_masuk, slot.status_parkir FROM pengguna LEFT JOIN slot ON pengguna.id_pengguna = slot.id_pengguna LEFT JOIN jenis_kendaraan ON pengguna.kd_jenis = jenis_kendaraan.kd_jenis";
 		$d 	= mysqli_query($con,$q);
 		return $d;
 	}

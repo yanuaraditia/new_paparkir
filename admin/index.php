@@ -94,8 +94,8 @@ $oop = new AdminClass();
 									<td class="mdl-data-table__cell--non-numeric"><?php echo $view['nopol_pengguna'];?></td>
 									<td class="mdl-data-table__cell--non-numeric"><?php echo $view['nama_jenis'];?></td>
 									<?php
-									if($view['status_parkir']==NULL) {
-									echo "<td class=\"mdl-data-table__cell--non-numeric\">Belum Terparkir</td>";
+									if($view['cek_pos']==NULL) {
+									echo "<td class=\"mdl-data-table__cell--non-numeric\">Terparkir</td>";
 									echo "<td class=\"mdl-data-table__cell--non-numeric\">-</td>";
 									echo "<td></td>";
 									}
