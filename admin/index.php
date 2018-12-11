@@ -25,7 +25,7 @@ $oop = new AdminClass();
 		<meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
 		<meta name="msapplication-TileColor" content="#3372DF">
 
-		<link rel="icon" href="..images/favicon.png" sizes="32x32" type="image/png">
+		<link rel="icon" href="../images/favicon.png" sizes="32x32" type="image/png">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans:400|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700|Material+Icons">
 		<link rel="stylesheet" href="../mdl/material.css">
 		<link rel="stylesheet" href="styles.css">
