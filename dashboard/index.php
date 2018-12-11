@@ -58,7 +58,12 @@ $body = new BodyContent();
 			</header>
 			<?php 
 			echo $body->__head_nav();
-			$kond = $oop->__test_ts($_SESSION['kode_slot']);
+			if(isset($_SESSION['kode_slot'])) {
+				$kond = $oop->__test_ts($_SESSION['kode_slot']);
+			}
+			else {
+				$kond = NULL;
+			}
 			?>
 			<main class="mdl-layout__content" id="load_content">
 				<div class="mdl-grid demo-content">
@@ -100,8 +105,8 @@ $body = new BodyContent();
 						</div>
 					</div>
 					<div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-desktop">
-						<div class="mdl-card__title mdl-card--expand mdl-color--teal-300">
-							<h2 class="mdl-card__title-text mdl-color-text--white"><?php echo $_SESSION['jenis_kendaraan'];?></h2>
+						<div class="mdl-card__title mdl-card--expand">
+							<img src="../slot_image/<?php echo base64_encode($co['kd_slot']);?>.png" style="margin-left: auto;margin-right: auto;">
 						</div>
 					</div>
 					<div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-desktop">
@@ -119,7 +124,7 @@ $body = new BodyContent();
 							?>
 						</div>
 					</div>
-					<div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-desktop">
+					<div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet mdl-cell--4-col-desktop">
 						<div class="mdl-card__title mdl-card--expand mdl-color--green-300">
 							<?php
 							if($kond<=50) {

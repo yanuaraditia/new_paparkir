@@ -85,7 +85,7 @@ class SmartQuery
 	}
 	function __check_parking($con,$id)
 	{
-		$q = "SELECT area.nama_area, lantai.nama_lantai, slot.nama_slot,slot.tanggal_masuk,slot.status_parkir,slot.id_pengguna FROM slot JOIN lantai ON slot.kd_lantai = lantai.kd_lantai JOIN area ON lantai.kd_area = area.kd_area WHERE slot.id_pengguna = '$id'";
+		$q = "SELECT area.nama_area, lantai.nama_lantai, slot.nama_slot, slot.kd_slot,slot.tanggal_masuk,slot.status_parkir,slot.id_pengguna FROM slot JOIN lantai ON slot.kd_lantai = lantai.kd_lantai JOIN area ON lantai.kd_area = area.kd_area WHERE slot.id_pengguna = '$id'";
 		$d = mysqli_query($con,$q);
 		$f = mysqli_fetch_assoc($d);
 		return $f;
