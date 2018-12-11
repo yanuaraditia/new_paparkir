@@ -7,6 +7,7 @@ if(!isset($_SESSION['nama_pengguna'])) {
 $oop = new SmartQuery();
 if(isset($_GET['do'])) {
 	$kd_slot	= base64_decode($_GET['do']);
+	$_SESSION['kode_slot'] = $kd_slot;
 	$tanggal	= date('Y-m-d');
 	$d = $oop->__book($con,$kd_slot,$_SESSION['id_pengguna'],$tanggal);
 	if($d) {

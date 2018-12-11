@@ -58,6 +58,7 @@ $body = new BodyContent();
 			</header>
 			<?php 
 			echo $body->__head_nav();
+			$kond = $oop->__test_ts($_SESSION['kode_slot']);
 			?>
 			<main class="mdl-layout__content" id="load_content">
 				<div class="mdl-grid demo-content">
@@ -79,7 +80,12 @@ $body = new BodyContent();
 						</div>
 						<div class="mdl-card__supporting-text mdl-color-text--grey-600">
 							<?php
-							if($co['id_pengguna']==$_SESSION['id_pengguna'] && $co['status_parkir']==NULL) {
+							if($kond<=50) {
+							?>
+								Terhitung sejak <?php echo tgl_indo($co['tanggal_masuk']);?> kendaraan anda telah terparkir dalam sistem kami, selamat menikmati layanan kami.<br/>
+							<?php
+							}
+							elseif($co['id_pengguna']==$_SESSION['id_pengguna'] && $co['status_parkir']==NULL) {
 							?>
 								Sistem akan menunggu anda dalam waktu 15 menit. Jika waktu tersebut dilewati maka slot akan diubah menjadi kadaluwarsa.<br/>
 								Halaman akan disegarkan secara otomatis, jika tidak gunakan tombol dibawah.
@@ -88,9 +94,9 @@ $body = new BodyContent();
 							<?php
 							}
 							else {
+								echo "Terjadi kesalahan, mohon maaf";
+							}
 							?>
-								Terhitung sejak <?php echo tgl_indo($co['tanggal_masuk']);?> kendaraan anda telah terparkir dalam sistem kami, selamat menikmati layanan kami.<br/>
-							<?php } ?>
 						</div>
 					</div>
 					<div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-desktop">
@@ -101,10 +107,10 @@ $body = new BodyContent();
 					<div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-desktop">
 						<div class="mdl-card__title mdl-card--expand mdl-color--purple-300">
 							<?php
-							if($co['status_parkir']==0){
+							if($kond>50){
 								echo "<h2 class=\"mdl-card__title-text mdl-color-text--white\">Menunggu Kendaraan</h2>";
 							}
-							elseif($co['status_parkir']==1){
+							elseif($kond<=50){
 								echo "<h2 class=\"mdl-card__title-text mdl-color-text--white\">".$co['nama_area']." | ".$co['nama_lantai']." | ".$co['nama_slot']."</h2>";
 							}
 							else {
@@ -116,15 +122,15 @@ $body = new BodyContent();
 					<div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-desktop">
 						<div class="mdl-card__title mdl-card--expand mdl-color--green-300">
 							<?php
-							if($co['status_parkir']==NULL) {
-								echo "<h2 class=\"mdl-card__title-text mdl-color-text--white\">-</h2>";
-							}
-							else {
+							if($kond<=50) {
 						    	$masuk = New DateTime($co['tanggal_masuk']);
 						    	$sekarang = New DateTime(date('Y-m-d'));
 						    	$total_hari = $masuk->diff($sekarang);
 						    	$total_bayar = $standar_tarif*($total_hari->days+1);
 								echo "<h2 class=\"mdl-card__title-text mdl-color-text--white\">Rp.".$total_bayar."</h2>";
+							}
+							else {
+								echo "<h2 class=\"mdl-card__title-text mdl-color-text--white\">-</h2>";
 						    }
 					    	?>
 						</div>

@@ -121,6 +121,18 @@ class SmartQuery
 		$d = mysqli_query($con,$q);
 		return $d;
 	}
+	function __test_ts($id)
+	{
+		$sumber = 'https://api.thingspeak.com/channels/649196/feeds.json?results=1';
+		$konten = file_get_contents($sumber);
+		$data = json_decode($konten, true);
+		$data = $data['feeds'];
+		$data = $data[0];
+		$id = 1;
+		$field = "field".$id;
+		$info = $data[$field];
+		return $info;
+	}
 }
 
 class BodyContent
