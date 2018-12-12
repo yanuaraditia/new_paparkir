@@ -1,3 +1,4 @@
+# This thread was closed and moved into gitlab, contact repo admin
 # Paparkir | Kemudahan parkir dalam genggaman
 
 Paparkir merupakan sebuah karya dan inovasi, bentuk kepedulian generasi muda yang prihatin dengan cara dan sistem parkir yang ada di Indonesia, khususnya DI Yogyakarta. Berdasarkan studi kasus yang kami lakukan, ada sekitar 7 dari 10 orang kesulitan dalam mencari parkir, dan 4 dari 7 orang tersebut selalu mengalami pungutan liar ketika memarkirkan kendaraannya.
